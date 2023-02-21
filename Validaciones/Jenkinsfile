@@ -1,5 +1,5 @@
 def dia = new Date().getDay()
-def cause = currentBuild.getBuildCauses()[0].userId
+def cause = currentBuild.rawBuild.getCause(Cause.UserIdCause)
 if (cause != null) {
     def user = cause.userId ?: 'anonymous'
 }
