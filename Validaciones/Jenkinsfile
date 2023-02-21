@@ -1,0 +1,50 @@
+def dia = new Date().getDay()
+def cause = currentBuild.getBuildCauses()[0].userId
+if (cause != null) {
+    def user = cause.userId ?: 'anonymous'
+}
+pipeline {
+    agent any
+    stages {
+        stage('Lunes'){
+            steps {
+                script {
+                   if(dia == 1)
+                   println "La tarea está siendo ejecutada por: ${user}"
+                }
+            }
+        }
+        stage('Martes'){
+            steps {
+                script {
+                   if(dia == 2)
+                   println "La tarea está siendo ejecutada por: ${user}"
+                }
+            }
+        }
+        stage('Miercoles'){
+            steps {
+                script {
+                   if(dia == 3)
+                   println "La tarea está siendo ejecutada por: ${user}"
+                }
+            }
+        }
+        stage('Jueves'){
+            steps {
+                script {
+                   if(dia == 4)
+                   println "La tarea está siendo ejecutada por: ${user}"
+                }
+            }
+        }
+        stage('Viernes'){
+            steps {
+                script {
+                   if(dia == 5)
+                   println "La tarea está siendo ejecutada por: ${user}"
+                }
+            }
+        }
+    }
+}
